@@ -33,6 +33,7 @@ schema:
 switches:
   - name: ascii_mode                    # 中英输入状态
     states: [ 中, 英 ]
+    reset: 1
   - name: ascii_punct                   # 中英标点，可以在中文输入状态输入英文符号
     states: [ ¥, $ ]
   - name: full_shape                    #全角、半角字符输出
@@ -47,7 +48,6 @@ switches:
     states: [ 音, 读 ]
   - name: super_tips                    #开启后在输入编码后面的提示区显示实时的提示数据，受tips数据库影响，表情、翻译、车牌、符号等对应关系数据，并可实现句号上屏，不开启则默认，影响的是segment.prompt参数，归属：super_tips.lua
     states: [ off, tips ]
-    reset: 1
   - options: [ s2s, s2t, s2hk, s2tw ]   # 简繁转换开关组，可以在一个空选项和多个实际“- simplifier@s2hk”引入的项目之前切换，这是一个开关组，你可以将其中任意一个s2s等设置为toggle快捷键，多次按下将轮询
     states: [ 简体, 通繁, 港繁, 臺繁 ]
   - name: prediction                    #开启后输入上屏后继续弹出预测数据候选展示例如输入：你在 ，预测候选： 哪里 干嘛 吗 做等等，predictor配置区可设置详细参数，归属：predict内置插件
