@@ -441,7 +441,7 @@ preset_color_schemes:
     hilited_label_color: 0xffffff           # 已选字的数字的颜色
     label_color: 0x888888                   # 预选栏编号颜色
 
-  solarized_rock:
+  solarized_rock_my:
     name: 日光石
     candidate_format: "%c %@ "    # 用 1/6 em 空格 U+2005 来控制编号 %c 和候选词 %@ 前后的空间
     corner_radius: 6                             # 窗口圆角
@@ -459,7 +459,7 @@ preset_color_schemes:
     hilited_candidate_text_color: 0xffffff   # 第一候选项文字颜色
     hilited_comment_text_color: 0x362b00     # 注解文字高亮
 
-  solarized_dark:
+  solarized_dark_my:
     name: 夜光石
     candidate_format: "%c %@ "    # 用 1/6 em 空格 U+2005 来控制编号 %c 和候选词 %@ 前后的空间
     corner_radius: 6                             # 窗口圆角
@@ -503,7 +503,6 @@ preset_color_schemes:
     candidate_format: "%c %@ "    # 用 1/6 em 空格 U+2005 来控制编号 %c 和候选词 %@ 前后的空间
     font_point: 16                           # 候选文字大小
     label_font_point: 14                     # 候选编号大小
-    line_spacing: 8                          # 行间距
     line_spacing: 10                         # 行间距(适用于竖排)
     border_height: 4                             # 窗口上下高度，大于圆角半径才生效
     border_width: 4                              # 窗口左右宽度，大于圆角半径才生效
@@ -983,7 +982,6 @@ preset_color_schemes:
   phub:
     name: 'phub' # 配色取自phub
     author: phub
-    name: phub
     back_color: 0x000000
     border_color: 0x3FA0F0
     text_color: 0xFFFFFF
