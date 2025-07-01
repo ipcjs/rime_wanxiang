@@ -6,17 +6,33 @@ config_version: "2024-04-16"
 # [app_options]
 # 针对特定应用的设置
 app_options:
+  # 如下程序下使用小句号
   cmd.exe:
-      ascii_mode: true
-      ascii_punct: true
+    ascii_punct: true
+  studio64.exe:
+    ascii_punct: true
   idea64.exe:
-      ascii_mode: false
-      ascii_punct: true
+    ascii_punct: true
+  code.exe:
+    ascii_punct: true
   Code.exe:
-      ascii_mode: false
-      ascii_punct: true
-  firefox.exe:
-    inline_preedit: true # 行内显示预编辑区：规避 <https://github.com/rime/weasel/issues/946>
+    ascii_punct: true
+  CodeHelper.exe:
+    ascii_punct: true
+  sublime_text.exe:
+    ascii_punct: true
+  notepad.exe:
+    ascii_mode: true
+    ascii_punct: true
+  # 如下程序下使用中文
+  Evernote.exe:
+    ascii_mode: false
+  chrome.exe:
+    ascii_mode: false
+  YoudaoDict.exe:
+    ascii_mode: false
+  # firefox.exe:
+  #   inline_preedit: true # 行内显示预编辑区：规避 <https://github.com/rime/weasel/issues/946>
   # cmd.exe:               # 带 .exe 的进程名：Weasel 15.0 及之前版本须小写; PR #1049 合并后释出的版本大小写不敏感
   #   ascii_mode: true     # 英文模式
   # conhost.exe:
