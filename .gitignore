@@ -11,3 +11,4 @@ build/
 installation.yaml
 user.yaml
 *.custom.yaml
+*.gram
