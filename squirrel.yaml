@@ -7,7 +7,6 @@ config_version: '2024-06-11'
 app_options:
   com.google.android.studio:
     ascii_punct: true
-    no_inline: true
   com.apple.dt.Xcode:
     ascii_punct: true
   com.microsoft.VSCode:
