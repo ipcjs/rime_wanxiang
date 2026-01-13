@@ -14,6 +14,10 @@
 				"dicts": [
 					{
 						"type": "text",
+						"file": "wechat-emoji-rime-opencc.txt"
+					},
+					{
+						"type": "text",
 						"file": "emoji.txt"
 					},
 					{

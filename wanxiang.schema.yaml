@@ -3,7 +3,7 @@
 # 方案说明
 ########################万象拼音标准版本，支持同文8、14、18键 ###########################
 set_shuru_schema:               #配置此项就是选择什么输入法,同时拆分反查和中英文混输也将匹配该输入方案
-  __include: 全拼                #可选解码规则有   全拼, 自然码, 自然龙, 汉心龙, 小鹤双拼, 搜狗双拼, 微软双拼, 智能ABC, 紫光双拼, 拼音加加, 乱序17 选择一个填入
+  __include: 小鹤双拼             #可选解码规则有   全拼, 自然码, 自然龙, 汉心龙, 小鹤双拼, 搜狗双拼, 微软双拼, 智能ABC, 紫光双拼, 拼音加加, 乱序17 选择一个填入
 set_cn_en:                      #中英混输
   user_dict: en_dicts/pinyin    #可选的值有：en_dicts/pinyin， en_dicts/zrm， en_dicts/flypy ，en_dicts/mspy， en_dicts/sogou， en_dicts/pinyin
 set_gongjian_mohu:              #可选的值有：18键, 14键, 9键, 26键  ，PC请选26键
@@ -33,6 +33,7 @@ schema:
 switches:
   - name: ascii_mode                    # 中英输入状态
     states: [ 中, 英 ]
+    reset: 1
   - name: ascii_punct                   # 中英标点，可以在中文输入状态输入英文符号
     states: [ ¥, $ ]
   - name: full_shape                    #全角、半角字符输出
@@ -47,7 +48,6 @@ switches:
     states: [ 音, 读 ]
   - name: super_tips                    #开启后在输入编码后面的提示区显示实时的提示数据，受tips数据库影响，表情、翻译、车牌、符号等对应关系数据，并可实现句号上屏，不开启则默认，影响的是segment.prompt参数，归属：super_tips.lua
     states: [ off, tips ]
-    reset: 1
   - options: [ s2s, s2t, s2hk, s2tw ]   # 简繁转换开关组，可以在一个空选项和多个实际“- simplifier@s2hk”引入的项目之前切换，这是一个开关组，你可以将其中任意一个s2s等设置为toggle快捷键，多次按下将轮询
     states: [ 简体, 通繁, 港繁, 臺繁 ]
   - name: prediction                    #开启后输入上屏后继续弹出预测数据候选展示例如输入：你在 ，预测候选： 哪里 干嘛 吗 做等等，predictor配置区可设置详细参数，归属：predict内置插件
@@ -711,6 +711,16 @@ speller:
     - xform/^n(\d)/en$1/
     - derive/^([jqxy])u(\d)$/$1v$2/
     - derive/^([aoe])([ioun])(\d)$/$1$1$2$3/
+    # 模糊音设置.start
+    - derive/^([zcs])h/$1/             # zh, ch, sh => z, c, s
+    - derive/^([zcs])([^h])/$1h$2/     # z, c, s => zh, ch, sh
+    # - derive/^r/l/                   # r => l
+    # - derive/^l/r/                   # l => r
+    # - derive/^l/n/                   # l => n
+    # - derive/^n/l/                   # n => l
+    - derive/([ei])n(\d)$/$1ng$2/            # en => eng, in => ing
+    - derive/([ei])ng(\d)$/$1n$2/            # eng => en, ing => in
+    # 模糊音.end
     - xform/^([aoe])(ng)?(\d)$/$1$1$2$3/
     - xform/iu(\d)$/Ⓠ$1/
     - xform/(.)ei(\d)$/$1Ⓦ$2/
